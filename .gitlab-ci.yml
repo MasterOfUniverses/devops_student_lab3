@@ -1,4 +1,4 @@
-image: 
+image:
 	python: 3.8
 before_script:
 	- pip instal virtualenv
@@ -7,6 +7,6 @@ before_script:
 	- pip install -r req.txt
 test:
 	script:
-		- python3 -m unittest discover -s "./tests" -p "*_test.py"
-		- flake8 .
-		- mypy .
+	- python3 -m unittest discover -s "./tests" -p "*_test.py"
+	- flake8 .
+	- mypy .
