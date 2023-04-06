@@ -1,14 +1,14 @@
 image:
-	python: 3.8
+  python: 3.8
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 before_script:
-	- pip instal virtualenv
-	- virtualenv venv
-	- source venv/bin/activate
-	- pip install -r req.txt
+  - pip instal virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -r req.txt
 test:
-	script:
-	- python3 -m unittest discover -s "./tests" -p "*_test.py"
-	- flake8 .
-	- mypy .
+  script:
+    - python3 -m unittest discover -s "./tests" -p "*_test.py"
+    - flake8 .
+    - mypy .
