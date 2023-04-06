@@ -109,7 +109,8 @@ class Test_App(AsyncHTTPTestCase):
         response = yield self.http_client.fetch(self.get_url('/p/1000000001'), request_timeout = 360.0)
         self.assertEqual(response.code, 200)
         res = str(response_body_parse(response.body)["num"])
-        self.assertEqual(res, "please, enter number smaller then 1 000 000 000 or use force-mode /P/n (if you really want to wait so long)")
+        self.assertEqual(res, """please, enter number smaller then 1 000 000 000 
+or use force-mode /P/n (if you really want to wait so long)""")
         response = yield self.http_client.fetch(self.get_url('/P/4000000000'), request_timeout = 360.0)
         self.assertEqual(response.code, 200)
         res = str(response_body_parse(response.body)["num"])
