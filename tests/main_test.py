@@ -1,6 +1,12 @@
 from tornado.testing import AsyncHTTPTestCase, gen_test, Application, Generator
 import json
+import append_paths
 import main
+
+
+print(append_paths.src_path)
+print(append_paths.test_path)
+print(append_paths.parent_path)
 
 
 def response_body_parse(body: bytes) -> dict:
