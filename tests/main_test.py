@@ -2,7 +2,7 @@ from tornado.testing import AsyncTestCase,AsyncHTTPTestCase, gen_test, AsyncHTTP
 
 import sys
 sys.path.append("../src/")
-import main
+import ../src/main
 
 import json
 def response_body_parse(body: bytes) -> dict:
