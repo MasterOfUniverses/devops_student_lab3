@@ -1,6 +1,6 @@
 from tornado.testing import AsyncHTTPTestCase, gen_test, Application, Generator
 import json
-import sys
+import main
 
 
 def response_body_parse(body: bytes) -> dict:
@@ -10,8 +10,6 @@ def response_body_parse(body: bytes) -> dict:
 
 class Test_App(AsyncHTTPTestCase):
     def get_app(self) -> Application:
-        sys.path.append("../src/")
-        import main
         main.app.listen(9999)
         return main.app
 
