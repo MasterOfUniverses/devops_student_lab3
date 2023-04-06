@@ -20,7 +20,7 @@ def prime_mod(pos: int, force: int) -> str:
     if force == 0:
         if pos > 1000000000:
             return """please, enter number smaller then 1 000 000 000 
-                or use force-mode /P/n (if you really want to wait so long)"""
+or use force-mode /P/n (if you really want to wait so long)"""
     if pos > 0:
         c = str(sympy.prime(pos))
     else:

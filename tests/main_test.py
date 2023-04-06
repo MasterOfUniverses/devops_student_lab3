@@ -1,10 +1,10 @@
 from tornado.testing import AsyncTestCase,AsyncHTTPTestCase, gen_test, AsyncHTTPClient
-
 import sys
 sys.path.append("./src/")
 import main
-
 import json
+
+
 def response_body_parse(body: bytes) -> dict:
     res = json.loads(body.decode('utf8').replace("'", '"'))
     return res
@@ -13,6 +13,7 @@ def response_body_parse(body: bytes) -> dict:
 class Test_App(AsyncHTTPTestCase):
     def get_app(self) -> None:
         return main.app
+
 
     def test_fibonacchi(self) -> None:
         response = self.fetch('/f/0')
@@ -40,6 +41,7 @@ class Test_App(AsyncHTTPTestCase):
         res = str(response_body_parse(response.body)["num"])
         self.assertEqual(res, "218922995834555169026")
     
+
     def test_prime(self) ->None:
         response = self.fetch('/p/0')
         self.assertEqual(response.code, 200)
@@ -61,7 +63,8 @@ class Test_App(AsyncHTTPTestCase):
         self.assertEqual(response.code, 200)
         res = str(response_body_parse(response.body)["num"])
         self.assertEqual(res, "104729")
-    
+ 
+   
     def test_forse_Prime(self) ->None:
         response = self.fetch('/P/0')
         self.assertEqual(response.code, 200)
@@ -80,6 +83,7 @@ class Test_App(AsyncHTTPTestCase):
         res = str(response_body_parse(response.body)["num"])
         self.assertEqual(res, "541")
     
+
     def test_start(self) -> None:
         response = self.fetch('/')
         self.assertEqual(response.code, 200)
@@ -87,6 +91,7 @@ class Test_App(AsyncHTTPTestCase):
         self.assertEqual(str(res["hello"]), "please, write in address bar /f/n or /p/n to get n-th fibonacchi or prime number")
         self.assertEqual(str(res["warning"]), "you can try to calculate n-th prime number with n>=1 000 000 000 but it is too long and if you really want to do it enter in address bar /P/n")
     
+
     @gen_test(timeout = 360.0)
     def test_long_prime(self) -> None:
         response = yield self.http_client.fetch(self.get_url('/P/1000000000'), request_timeout = 360.0)
@@ -109,4 +114,3 @@ class Test_App(AsyncHTTPTestCase):
         self.assertEqual(response.code, 200)
         res = str(response_body_parse(response.body)["num"])
         self.assertEqual(res, "97011687217")
-
