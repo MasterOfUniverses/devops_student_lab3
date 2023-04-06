@@ -1,7 +1,7 @@
 import sys
-import main
 from tornado.testing import AsyncHTTPTestCase, gen_test, Application, Generator
 import json
+import main
 sys.path.append("./src/")
 
 
