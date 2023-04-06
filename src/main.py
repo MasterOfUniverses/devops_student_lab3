@@ -19,7 +19,7 @@ def fibonacchi_mod(pos: int) -> str:
 def prime_mod(pos: int, force: int) -> str:
     if force == 0:
         if pos > 1000000000:
-            return """please, enter number smaller then 1 000 000 000 
+            return """please, enter number smaller then 1 000 000 000
 or use force-mode /P/n (if you really want to wait so long)"""
     if pos > 0:
         c = str(sympy.prime(pos))
@@ -48,8 +48,11 @@ class MainHandler(RequestHandler):
             result = prime_mod(pos, 1)
             self.write({"num": result})
         else:
-            self.write({"hello": "please, write in address bar /f/n or /p/n to get n-th fibonacchi or prime number",
-                    "warning": "you can try to calculate n-th prime number with n>=1 000 000 000 but it is too long and if you really want to do it enter in address bar /P/n"
+            self.write({"hello": """"please, write in address bar /f/n
+or /p/n to get n-th fibonacchi or prime number""",
+                    "warning": """you can try to calculate n-th prime number
+with n>=1 000 000 000 but it is too long and if you really want to do
+it enter in address bar /P/n"""
             })
 
 
