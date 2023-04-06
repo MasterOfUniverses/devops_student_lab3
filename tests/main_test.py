@@ -1,6 +1,8 @@
+import sys
 import main
 from tornado.testing import AsyncHTTPTestCase, gen_test, Application, Generator
 import json
+sys.path.append("../src/")
 
 
 def response_body_parse(body: bytes) -> dict:
