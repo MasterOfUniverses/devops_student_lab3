@@ -50,10 +50,10 @@ class MainHandler(RequestHandler):
         else:
             self.write({"hello": """"please, write in address bar /f/n
 or /p/n to get n-th fibonacchi or prime number""",
-                    "warning": """you can try to calculate n-th prime number
+                        "warning": """you can try to calculate n-th prime number
 with n>=1 000 000 000 but it is too long and if you really want to do
 it enter in address bar /P/n"""
-            })
+                        })
 
 
 app = Application([(r"/([f|p|P]/[0-9]+)?", MainHandler)])
