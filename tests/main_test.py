@@ -4,6 +4,9 @@ import append_paths
 import main
 
 
+print(append_paths.parent_path)
+
+
 def response_body_parse(body: bytes) -> dict:
     res = json.loads(body.decode('utf8').replace("'", '"'))
     return res
