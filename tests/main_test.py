@@ -1,8 +1,8 @@
 from tornado.testing import AsyncTestCase,AsyncHTTPTestCase, gen_test, AsyncHTTPClient
 
 import sys
-sys.path.append("../src/")
-import ../src/main
+sys.path.append("./src/")
+import main
 
 import json
 def response_body_parse(body: bytes) -> dict:
