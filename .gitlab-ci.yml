@@ -7,7 +7,6 @@ before_script:
   - source venv/bin/activate
   - pip install -r req.txt
   - python3 append_paths.py
-  
 test:
   script:
     - python3 -m unittest discover -s "./tests" -p "*_test.py"
