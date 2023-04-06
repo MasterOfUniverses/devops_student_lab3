@@ -9,3 +9,6 @@ test_path = parent_path + "test/"
 sys.path.append(src_path)
 sys.path.append(test_path)
 sys.path.append(parent_path)
+print(parent_path)
+print(test_path)
+print(src_path)
